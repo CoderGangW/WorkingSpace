@@ -15,5 +15,41 @@ app.listen(pn, function(){
 });
 
 app.get('/', function(요청, 응답){
-    응답.sendFile(__dirname+ '/mainhome.html')
+    응답.sendFile(__dirname + '/html/mainhome.html')
 });
+
+app.get('/mypet', function(요청, 응답){
+    응답.sendFile(__dirname + '/html/mypet.html')
+});
+
+app.get('/signin', function(요청, 응답){
+    응답.sendFile(__dirname + '/html/signin.html')
+});
+
+app.get('/signup', function(요청, 응답){
+    응답.sendFile(__dirname + '/html/signup.html')
+})
+
+app.get('/accountopt', function(요청, 응답){
+    응답.sendFile(__dirname + '/html/accountopt.html')
+})
+
+app.get('/community', function(요청, 응답){
+    응답.sendFile(__dirname + '/html/community.html')
+})
+
+app.get('/notice', function(요청, 응답){
+    응답.sendFile(__dirname + '/html/notice.html')
+})
+
+app.get('/petsitem', function(요청, 응답){
+    응답.sendFile(__dirname + '/html/petsitem.html')
+})
+
+app.get('/pettrip', function(요청, 응답){
+    응답.sendFile(__dirname + '/html/pettrip.html')
+})
+
+app.get('/suggest', function(요청, 응답){
+    응답.sendFile(__dirname + '/html/suggest.html')
+})
