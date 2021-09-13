@@ -7,6 +7,13 @@ app.set('view engine', 'ejs');
 
 dbcon.DBconnector();
 
-app.get('/', function(요청,응답){
-    응답.sendFile(__dirname+'/index.html')
+var pn = dbcon.Portnum();
+
+app.listen(pn, function(){
+    console.log('DataBase Connect Complete!')
+    console.log('Server is Operating on Port Number 8080')
+});
+
+app.get('/', function(요청, 응답){
+    응답.sendFile(__dirname+ '/mainhome.html')
 });
