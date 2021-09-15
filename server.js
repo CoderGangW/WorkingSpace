@@ -7,6 +7,9 @@ app.set('view engine', 'ejs');
 
 dbcon.DBconnector();
 
+var path = require('path');
+var db;
+
 var pn = dbcon.Portnum();
 
 app.listen(pn, function(){
@@ -14,42 +17,42 @@ app.listen(pn, function(){
     console.log('Server is Operating on Port Number 8080')
 });
 
-app.get('/', function(요청, 응답){
-    응답.sendFile(__dirname + '/html/mainhome.html')
+app.get('/', function(req, res){
+    res.render('mainhome.ejs');
 });
 
-app.get('/mypet', function(요청, 응답){
-    응답.sendFile(__dirname + '/html/mypet.html')
+app.get('/mypet', function(req, res){
+    res.render('mypet.ejs');
 });
 
-app.get('/signin', function(요청, 응답){
-    응답.sendFile(__dirname + '/html/signin.html')
+app.get('/signin', function(req, res){
+    res.render('signin.ejs');
 });
 
-app.get('/signup', function(요청, 응답){
-    응답.sendFile(__dirname + '/html/signup.html')
-})
+app.get('/signup', function(req, res){
+    res.render('signup.ejs');
+});
 
-app.get('/accountopt', function(요청, 응답){
-    응답.sendFile(__dirname + '/html/accountopt.html')
-})
+app.get('/accountopt', function(req, res){
+    res.render('accountopt.ejs');
+});
 
-app.get('/community', function(요청, 응답){
-    응답.sendFile(__dirname + '/html/community.html')
-})
+app.get('/community', function(req, res){
+    res.render('community.ejs');
+});
 
-app.get('/notice', function(요청, 응답){
-    응답.sendFile(__dirname + '/html/notice.html')
-})
+app.get('/notice', function(req, res){
+    res.render('notice.ejs');
+});
 
-app.get('/petsitem', function(요청, 응답){
-    응답.sendFile(__dirname + '/html/petsitem.html')
-})
+app.get('/petsitem', function(req, res){
+    res.render('petsitem.ejs');
+});
 
-app.get('/pettrip', function(요청, 응답){
-    응답.sendFile(__dirname + '/html/pettrip.html')
-})
+app.get('/pettrip', function(req, res){
+    res.render('pettrip.ejs');
+});
 
-app.get('/suggest', function(요청, 응답){
-    응답.sendFile(__dirname + '/html/suggest.html')
-})
+app.get('/suggest', function(req, res){
+    res.render('suggest.ejs');
+});
