@@ -1,20 +1,27 @@
 const express = require('express');
 const app = express();
-const dbcon = require('./DBdata.js')
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+const session = require('express-session');
+const MongoClient = require('mongodb').MongoClient;
 
+require('dotenv').config()
+
+app.use(session({secret : 'secret', resave : true, saveUninitialized: false}));
+app.use(passport.initialize());
+app.use(passport.session()); 
 app.use(express.urlencoded({extended: true})) 
 app.set('view engine', 'ejs');
 
-dbcon.DBconnector();
 
-var path = require('path');
 var db;
-
-var pn = dbcon.Portnum();
-
-app.listen(pn, function(){
-    console.log('DataBase Connect Complete!')
-    console.log('Server is Operating on Port Number 8080')
+    
+MongoClient.connect(process.env.DB_URL, function(err, client){
+    if(err) return console.log(err)
+    db = client.db('GaeulsWorld');
+    app.listen(process.env.PORTNUM, function() {
+        console.log('DB connection complete!\n Server is Operating!')
+    });
 });
 
 app.get('/', function(req, res){
@@ -29,8 +36,21 @@ app.get('/signin', function(req, res){
     res.render('signin.ejs');
 });
 
+app.post('/login', function(req, res){
+    
+})
+
 app.get('/signup', function(req, res){
     res.render('signup.ejs');
+});
+
+app.post('/signuptoDB', function(req, res){
+    dabe.collection('account').insertOne({ID : req.body.idname, PW : req.body.idpw, NAME : req.body.name}, function(A,B){
+        console.log(A)
+        console.log(B)
+    });
+    
+    res.render('mainhome.ejs')
 });
 
 app.get('/accountopt', function(req, res){

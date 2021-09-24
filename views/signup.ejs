@@ -7,16 +7,46 @@
 
     <title>🐶Gaeul's World🐶</title>
   </head>
+  <script>
+    function signupeven(){
+      alert('회원가입이 완료되었습니다 홈화면으로 돌아갑니다.')
+    }
+  </script>
   <body>
     <header><%- include('../html/topnav.html') %></header>
 
-      <h1> 
-        <span style = "font-size : 1.5em; color : rgb(0, 17, 255)">
+    <div class = "signupdata">
+      <form action = "/signuptoDB" method = "POST">
+        <h1>
           <center>
-            회원가입 화면
+            <div style = "margin-top : 100px; margin-bottom : 50px;">
+              <strong>
+                회원가입
+              </strong>
+            </div>  
           </center>
-        </span>
-      </h1>
+        </h1>
+        <center>
+          <div style = "margin-top : 120px">
+            <span><label> 아이디 : </label></span>
+            <span><input type = "text" name = "idname"></span>
+          </div>
+          <div>
+            <span><button>중복체크</button></span>
+          </div>
+          <div>
+            <span><label> 패스워드 : </label></span>
+            <span><input type = "text" name = "idpw"></span>
+          </div>
+          <div>
+            <span><label> 이름 : </label></span>
+            <span><input type = "text" name = "name"></span>
+          </div>
+          <button type = "submit" class = "btn btn-danger" onClick = signupeven()>회원가입</button>
+        </center>
+        
+      </form>
+    </div>
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
